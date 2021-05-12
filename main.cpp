@@ -22,7 +22,7 @@ int main() {  // inicia nuestro programa
     // ahora mostramos las centenas
 
     switch (centena){
-      case 0: cout<< "cero"; break;
+      case 0: cout<< ""; break;
       case 1:     if (decena==0 && unidad==0) {  // la centena de cien, necesita especificar si es 100, o más de 100
 
                      cout<<"cien ";
