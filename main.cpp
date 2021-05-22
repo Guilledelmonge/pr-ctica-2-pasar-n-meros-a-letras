@@ -6,24 +6,54 @@ using namespace std;
 
 int main() {  // inicia nuestro programa
   
-  int numero, unidad, decena, centena, unimil;
+  int numero, unidad, decena, centena;
   cout << "escriba un número del o al 999: "; cin>> numero;  // ingresamos un número
 
 
-  if(numero>=0 && numero<=999){  // si el número es mayor o igual a cero, ay además es menos o igual a 999, entonces :
+// se agrega un condicional, para reamostrar en pantalla el numero que digitamos del 0 al 10
+if (0<=numero && numero<=10) {
+switch (numero){
+ 
+         case 0: cout<< "cero "; break;
+         case 1: cout<< "uno"; break;
+         case 2: cout<< "dos "; break;
+         case 3: cout<< "tres "; break;
+         case 4: cout<< "cuatro "; break;
+         case 5: cout<< "cinco "; break;
+         case 6: cout<< "seis "; break;
+         case 7: cout<< "siete "; break;
+         case 8: cout<< "ocho "; break;
+         case 9: cout<< "nueve "; break;
+         break;
+ }}
 
-    // ahora el % nos da el residuo y el / el cociente
+
+// ahora viene la programación para identificar los números del 11 al 999
+
+  else if(numero>10 && numero<=999){  // si el número es mayor o igual a cero, y además es menor o igual a 999, entonces :
+
+    /* ahora el % nos da el residuo y el / el cociente, todo esto para que el programa comprenda y ubique cuando agrego un0, dos o 3 números*/
     unidad=numero%10;  numero=numero/10; 
     decena=numero%10;  numero=numero/10;
     centena=numero%10; numero=numero/10;
+
+ 
+ // agregué un if, para establecer una condición entre los números de o y 999     
+ if(10>=numero && numero <=999) {
+
+    // ahora calculamos las centenas
     
+    /* escogí un case para que se me haga más facil leer cada numero correspondiente a la parte de unida, decena y centena*/
 
 
-    // ahora mostramos las centenas
+    /* lo case son para que cuando se precione un número, el programa
+    sepa donde ubicarlo, ya sea en las decenas o centenas*/ 
 
+
+    // el siguiente es el bucle para las centenas
     switch (centena){
       case 0: cout<< ""; break;
-      case 1:     if (decena==0 && unidad==0) {  // la centena de cien, necesita especificar si es 100, o más de 100
+      case 1:     if (decena==0 && unidad==0) {  /* la centena de cien, necesita especificar si es 100, o más de 100, si la decena es 0 y la unidad es 0, estonces reelice los siguientes casos*/
 
                      cout<<"cien ";
                     }
@@ -31,7 +61,8 @@ int main() {  // inicia nuestro programa
                       cout<<"ciento ";  
                      }
                 break;
- 
+         // el break en general para todos los case, finaliza la ejecución de dichos bucles y salta a la primera instrucción siguiente
+
       case 2: cout<< "doscientos "; break;
       case 3: cout<< "trescientos "; break;
       case 4: cout<< "cuatrocientos "; break;
@@ -42,8 +73,28 @@ int main() {  // inicia nuestro programa
       case 9: cout<< "nuevecientos "; break;
     }
 
-  //ahora las decenas
+
+
+
+  //ahora los diferentes bucles para leer las decenas
+  
    switch (decena){
+    // agregué el case 0, para que me motrara los numeros del 101 al 109, 201 al 209, 301 al 309 y así sucesivamente
+     case 0: switch (unidad){
+         
+         case 0: cout<< " "; break;
+         case 1: cout<< "uno "; break;
+         case 2: cout<< "dos"; break;
+         case 3: cout<< "tres "; break;
+         case 4: cout<< "cuatro "; break;
+         case 5: cout<< "cinco "; break;
+         case 6: cout<< "seis "; break;
+         case 7: cout<< "siete "; break;
+         case 8: cout<< "ocho "; break;
+         case 9: cout<< "nueve "; break;
+       }
+      break;
+
       case 1: switch (unidad){
          
          case 0: cout<< "diez "; break;
@@ -181,7 +232,9 @@ int main() {  // inicia nuestro programa
        }
       break;
 
-
+   /* las siguientes llaves son para cerrar los diferentes
+   condicionales, switch y case del programa */ 
   }
+}
 }
 }
